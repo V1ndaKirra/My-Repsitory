@@ -1,0 +1,32 @@
+# 敏感文件
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+
+# ChromaDB 向量库（体积大，运行时生成）
+law_db/
+
+# 原始 HTML/TXT 爬取文件（中间产物）
+*_raw.html
+*_raw.txt
+*.txt
+
+# 截图和测试素材
+*.png
+*.jpg
+
+# 废弃/过期文件
+*.OUTDATED
+
+# IDE
+.vscode/
+.idea/
+
+# 系统
+Thumbs.db
+Desktop.ini

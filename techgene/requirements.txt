@@ -1,0 +1,28 @@
+# HTTP & API
+httpx>=0.27.0
+
+# 数据模型
+pydantic>=2.0.0
+sqlalchemy>=2.0.0
+
+# LLM (Phase 2 需要)
+openai>=1.0.0
+
+# 数值计算 (Phase 1.2 需要)
+numpy>=1.24.0
+scipy>=1.10.0
+
+# 调度 (VPS 部署需要)
+apscheduler>=3.10.0
+
+# 日志
+loguru>=0.7.0
+
+# 配置
+python-dotenv>=1.0.0
+
+# 解析 arXiv XML
+lxml>=5.0.0
+
+# HTML 模板 (Phase 2.3 需要)
+jinja2>=3.1.0
