@@ -2,7 +2,7 @@
 
 追踪深度学习关键技术的演进脉络，通过七维度框架量化评估每项技术的产业影响力，生成交互式时间线可视化与每日研究简报。
 
-**在线 Demo**: [https://v1ndakirra.github.io/My-Repsitory/techgene/timeline.html](https://v1ndakirra.github.io/My-Repsitory/techgene/timeline.html)（需在仓库 Settings → Pages 启用，Source: master / root）
+**在线 Demo**: [https://v1ndakirra.github.io/My-Repsitory/techgene/timeline.html](https://v1ndakirra.github.io/My-Repsitory/techgene/timeline.html)
 
 ## 核心能力
 
