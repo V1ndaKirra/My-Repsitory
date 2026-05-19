@@ -7,71 +7,229 @@
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
   body { font-family: -apple-system, 'Microsoft YaHei', sans-serif; margin: 0; background: #0d1117; color: #c9d1d9; }
-  #header { padding: 20px 40px; background: #161b22; border-bottom: 1px solid #30363d; }
-  #header h1 { margin: 0; font-size: 24px; color: #58a6ff; }
-  #chart { width: 100%; height: calc(100vh - 80px); }
+  #header { padding: 16px 40px; background: #161b22; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; }
+  #header h1 { margin: 0; font-size: 20px; color: #58a6ff; }
+  #header .meta { color: #8b949e; font-size: 12px; }
+  #chart { width: 100%; height: calc(100vh - 140px); }
+  #legend { position: absolute; bottom: 12px; left: 40px; font-size: 12px; color: #8b949e; display: flex; gap: 20px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; }
 </style>
 </head>
 <body>
 <div id="header">
-  <h1>🧬 TechGene 技术谱系时间线</h1>
-  <p style="margin:4px 0 0; color:#8b949e; font-size:13px">更新于 2026-05-18 06:57 UTC | 27 个节点</p>
+  <div>
+    <h1>🧬 TechGene 技术谱系时间线</h1>
+    <span class="meta">节点: 27 | 关系线: 8 | 更新于 2026-05-18 15:10 UTC</span>
+  </div>
+  <div style="display:flex; gap:16px; font-size:13px">
+    <span><span class="dot" style="background:#58a6ff"></span> 高接口通用性</span>
+    <span><span class="dot" style="background:#3fb950"></span> 高可组合性</span>
+    <span><span class="dot" style="background:#f0883e"></span> 里程碑</span>
+    <span><span class="dot" style="background:#d2a8ff"></span> 其他</span>
+  </div>
 </div>
 <div id="chart"></div>
 <script>
-var nodes = [{"id": "backprop-1986", "title": "Learning representations by back-propagating errors", "year": 2026, "composite": 2.8, "scores": {"abstraction": 3.9, "medium": 1.7}}, {"id": "imagenet-2009", "title": "ImageNet: A Large-Scale Hierarchical Image Database", "year": 2026, "composite": 3.2, "scores": {"abstraction": 4.8, "medium": 1.7}}, {"id": "resnet-2015", "title": "Deep Residual Learning for Image Recognition", "year": 2026, "composite": 2.9, "scores": {"abstraction": 3.5, "medium": 2.3}}, {"id": "yolo-2016", "title": "You Only Look Once: Unified, Real-Time Object Detection", "year": 2026, "composite": 2.5, "scores": {"abstraction": 2.8, "medium": 2.3}}, {"id": "alphago-2016", "title": "Mastering the game of Go with deep neural networks", "year": 2026, "composite": 2.7, "scores": {"abstraction": 3.6, "medium": 1.8}}, {"id": "transformer-2017", "title": "Attention Is All You Need", "year": 2026, "composite": 3.1, "scores": {"abstraction": 4.0, "medium": 2.3}}, {"id": "sd-2022", "title": "High-Resolution Image Synthesis with Latent Diffusion Models", "year": 2026, "composite": 3.0, "scores": {"abstraction": 3.3, "medium": 2.7}}, {"id": "W7161285974", "title": "When Robots Do the Chores: A Benchmark and Agent for Long-Ho", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161242814", "title": "BioHuman: Learning Biomechanical Human Representations from ", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161274452", "title": "Graphs of Research: Citation Evolution Graphs as Supervision", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161285792", "title": "Exploring Bottlenecks in VLM-LLM Navigation: How 3D Scene Un", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161300027", "title": "Enjoy Your Layer Normalization with the Computational Effici", "year": 2026, "composite": 2.3, "scores": {"abstraction": 3.5, "medium": 1.1}}, {"id": "W7161278708", "title": "Not All Timesteps Matter Equally: Selective Alignment Knowle", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161275243", "title": "PhyMotion: Structured 3D Motion Reward for Physics-Grounded ", "year": 2026, "composite": 2.4, "scores": {"abstraction": 3.5, "medium": 1.3}}, {"id": "W7161251945", "title": "Knowledge Beyond Language: Bridging the Gap in Multilingual ", "year": 2026, "composite": 2.0, "scores": {"abstraction": 2.5, "medium": 1.5}}, {"id": "W7161309438", "title": "Interestingness as an Inductive Heuristic for Future Compres", "year": 2026, "composite": 1.9, "scores": {"abstraction": 2.5, "medium": 1.3}}, {"id": "W7161307121", "title": "Efficient Dense Matching for Enhanced Gaussian Splatting Usi", "year": 2026, "composite": 2.3, "scores": {"abstraction": 3.5, "medium": 1.1}}, {"id": "W7161251680", "title": "ClickRemoval: An Interactive Open-Source Tool for Object Rem", "year": 2026, "composite": 2.3, "scores": {"abstraction": 3.5, "medium": 1.1}}, {"id": "W7161301568", "title": "Learning from Language Feedback via Variational Policy Disti", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161254959", "title": "Video-Zero: Self-Evolution Video Understanding", "year": 2026, "composite": 2.3, "scores": {"abstraction": 3.5, "medium": 1.1}}, {"id": "W7161271730", "title": "A Unified Knowledge Embedded Reinforcement Learning-based Fr", "year": 2026, "composite": 2.3, "scores": {"abstraction": 3.5, "medium": 1.1}}, {"id": "W7161250414", "title": "Semantic Feature Segmentation for Interpretable Predictive M", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161291017", "title": "Towards Accurate Single Panoramic 3D Detection: A Semantic G", "year": 2026, "composite": 2.3, "scores": {"abstraction": 3.5, "medium": 1.1}}, {"id": "W7161274227", "title": "Capacitive Touchscreens at Risk: A Practical Side-Channel At", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161277898", "title": "SR-Platform: An Agentic Pipeline for Natural Language-Driven", "year": 2026, "composite": 2.3, "scores": {"abstraction": 3.5, "medium": 1.1}}, {"id": "W7161311039", "title": "Towards Self-Evolving Agentic Literature Retrieval", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}, {"id": "W7161229597", "title": "Exemplar Partitioning for Mechanistic Interpretability", "year": 2026, "composite": 1.8, "scores": {"abstraction": 2.5, "medium": 1.1}}];
+var nodes = [{"id": "backprop-1986", "name": "Learning representations by back-propagating error", "year": 1986.7440452054796, "composite": 2.4, "scores": {"抽象层级": 3.5, "可组合性": 1.5, "产业距离": 2.0, "接口通用性": 5.0, "迭代潜力": 2.0, "扩散媒介": 1.7, "标准化效应": 1.0}, "is_milestone": true}, {"id": "imagenet-2009", "name": "ImageNet: A Large-Scale Hierarchical Image Databas", "year": 2009.4176986301368, "composite": 2.2, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 2.0, "接口通用性": 3.5, "迭代潜力": 4.0, "扩散媒介": 1.7, "标准化效应": 1.0}, "is_milestone": true}, {"id": "resnet-2015", "name": "Deep Residual Learning for Image Recognition", "year": 2015.9349260273973, "composite": 2.7, "scores": {"抽象层级": 2.5, "可组合性": 4.0, "产业距离": 2.0, "接口通用性": 5.0, "迭代潜力": 2.0, "扩散媒介": 2.3, "标准化效应": 1.0}, "is_milestone": true}, {"id": "alphago-2016", "name": "Mastering the game of Go with deep neural networks", "year": 2016.0740328767124, "composite": 2.3, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 1.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.6, "标准化效应": 1.0}, "is_milestone": true}, {"id": "yolo-2016", "name": "You Only Look Once: Unified, Real-Time Object Dete", "year": 2016.3581246575343, "composite": 1.8, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 1.0, "接口通用性": 2.7, "迭代潜力": 2.1, "扩散媒介": 2.3, "标准化效应": 1.0}, "is_milestone": true}, {"id": "transformer-2017", "name": "Attention Is All You Need", "year": 2017.4438356164383, "composite": 2.3, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 1.0, "接口通用性": 5.0, "迭代潜力": 4.1, "扩散媒介": 1.6, "标准化效应": 1.0}, "is_milestone": true}, {"id": "sd-2022", "name": "High-Resolution Image Synthesis with Latent Diffus", "year": 2022.414498630137, "composite": 2.2, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 1.0, "接口通用性": 4.0, "迭代潜力": 4.0, "扩散媒介": 1.6, "标准化效应": 1.0}, "is_milestone": true}, {"id": "W7161285974", "name": "When Robots Do the Chores: A Benchmark and Agent f", "year": 2026.3610835616437, "composite": 2.9, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 5.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.5}, "is_milestone": false}, {"id": "W7161242814", "name": "BioHuman: Learning Biomechanical Human Representat", "year": 2026.3596835616438, "composite": 1.9, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 3.0, "接口通用性": 3.0, "迭代潜力": 2.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161274452", "name": "Graphs of Research: Citation Evolution Graphs as S", "year": 2026.3599835616437, "composite": 2.8, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 5.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161285792", "name": "Exploring Bottlenecks in VLM-LLM Navigation: How 3", "year": 2026.3608835616437, "composite": 2.9, "scores": {"抽象层级": 2.5, "可组合性": 1.5, "产业距离": 5.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161300027", "name": "Enjoy Your Layer Normalization with the Computatio", "year": 2026.3687835616438, "composite": 2.9, "scores": {"抽象层级": 3.5, "可组合性": 1.0, "产业距离": 5.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161278708", "name": "Not All Timesteps Matter Equally: Selective Alignm", "year": 2026.3607835616438, "composite": 2.5, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 3.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161275243", "name": "PhyMotion: Structured 3D Motion Reward for Physics", "year": 2026.3598835616438, "composite": 2.5, "scores": {"抽象层级": 3.5, "可组合性": 1.0, "产业距离": 5.0, "接口通用性": 4.0, "迭代潜力": 2.0, "扩散媒介": 1.3, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161251945", "name": "Knowledge Beyond Language: Bridging the Gap in Mul", "year": 2026.3601835616437, "composite": 3.1, "scores": {"抽象层级": 2.5, "可组合性": 3.0, "产业距离": 5.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.5, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161309438", "name": "Interestingness as an Inductive Heuristic for Futu", "year": 2026.3602835616437, "composite": 3.0, "scores": {"抽象层级": 2.5, "可组合性": 2.0, "产业距离": 5.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.3, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161307121", "name": "Efficient Dense Matching for Enhanced Gaussian Spl", "year": 2026.3689835616437, "composite": 3.1, "scores": {"抽象层级": 3.5, "可组合性": 1.0, "产业距离": 5.0, "接口通用性": 5.0, "迭代潜力": 5.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161251680", "name": "ClickRemoval: An Interactive Open-Source Tool for ", "year": 2026.3597835616438, "composite": 2.0, "scores": {"抽象层级": 3.5, "可组合性": 1.0, "产业距离": 3.0, "接口通用性": 2.5, "迭代潜力": 2.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161301568", "name": "Learning from Language Feedback via Variational Po", "year": 2026.3598835616438, "composite": 2.5, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 3.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161254959", "name": "Video-Zero: Self-Evolution Video Understanding", "year": 2026.3609835616437, "composite": 2.6, "scores": {"抽象层级": 3.5, "可组合性": 1.0, "产业距离": 3.0, "接口通用性": 4.5, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161271730", "name": "A Unified Knowledge Embedded Reinforcement Learnin", "year": 2026.3595835616438, "composite": 3.0, "scores": {"抽象层级": 3.5, "可组合性": 1.0, "产业距离": 5.0, "接口通用性": 5.0, "迭代潜力": 4.1, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161250414", "name": "Semantic Feature Segmentation for Interpretable Pr", "year": 2026.3691835616437, "composite": 2.9, "scores": {"抽象层级": 2.5, "可组合性": 2.0, "产业距离": 5.0, "接口通用性": 4.7, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161291017", "name": "Towards Accurate Single Panoramic 3D Detection: A ", "year": 2026.3595835616438, "composite": 2.6, "scores": {"抽象层级": 3.5, "可组合性": 1.0, "产业距离": 5.0, "接口通用性": 2.7, "迭代潜力": 4.1, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161274227", "name": "Capacitive Touchscreens at Risk: A Practical Side-", "year": 2026.3599835616437, "composite": 2.2, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 3.0, "接口通用性": 3.0, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161277898", "name": "SR-Platform: An Agentic Pipeline for Natural Langu", "year": 2026.3616835616438, "composite": 2.9, "scores": {"抽象层级": 3.5, "可组合性": 1.5, "产业距离": 5.0, "接口通用性": 4.5, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161311039", "name": "Towards Self-Evolving Agentic Literature Retrieval", "year": 2026.3692835616437, "composite": 2.5, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 3.0, "接口通用性": 5.0, "迭代潜力": 4.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}, {"id": "W7161229597", "name": "Exemplar Partitioning for Mechanistic Interpretabi", "year": 2026.3609835616437, "composite": 2.7, "scores": {"抽象层级": 2.5, "可组合性": 1.0, "产业距离": 3.0, "接口通用性": 5.0, "迭代潜力": 5.0, "扩散媒介": 1.1, "标准化效应": 1.0}, "is_milestone": false}];
+var edges = [{"source": "backprop-1986", "target": "resnet-2015", "label": "训练基础"}, {"source": "backprop-1986", "target": "alphago-2016", "label": "训练基础"}, {"source": "backprop-1986", "target": "transformer-2017", "label": "优化基础"}, {"source": "imagenet-2009", "target": "resnet-2015", "label": "基准数据集"}, {"source": "imagenet-2009", "target": "yolo-2016", "label": "基准数据集"}, {"source": "resnet-2015", "target": "alphago-2016", "label": "残差模块"}, {"source": "resnet-2015", "target": "yolo-2016", "label": "主干网络"}, {"source": "transformer-2017", "target": "sd-2022", "label": "注意力机制"}];
+
 var chart = echarts.init(document.getElementById('chart'));
 
-// 按年份分组
-var years = [...new Set(nodes.map(n => n.year))].sort();
+// 里程碑节点放上面，普通节点放下面
+var milestoneNodes = nodes.filter(n => n.is_milestone);
+var normalNodes = nodes.filter(n => !n.is_milestone);
 
-var series = years.map(year => {
-  var items = nodes.filter(n => n.year === year);
-  return {
-    type: 'scatter',
-    name: String(year),
-    data: items.map(n => ({
-      value: [year, n.composite],
-      name: n.title,
-      scores: n.scores,
-      id: n.id
-    })),
-    symbolSize: function(val) { return Math.max(10, val[1] * 15); },
-    itemStyle: {
-      color: function(p) {
-        var s = p.data.scores || {};
-        return s.interface > 4 ? '#58a6ff' : s.composability > 3 ? '#3fb950' : '#d2a8ff';
-      }
-    }
-  };
-});
+var yValue = function(n) {
+    return n.is_milestone ? n.composite + 0.8 : n.composite;
+};
 
 var option = {
+  toolbox: {
+    feature: {
+      dataZoom: { yAxisIndex: 'none', title: { zoom: '框选缩放', back: '还原' } },
+      restore: { title: '重置' },
+      saveAsImage: { title: '保存图片', pixelRatio: 2 },
+    },
+    right: 20,
+    top: 0,
+    iconStyle: { borderColor: '#8b949e' },
+    emphasis: { iconStyle: { borderColor: '#58a6ff' } },
+  },
+  dataZoom: [
+    {
+      type: 'slider',
+      xAxisIndex: 0,
+      start: 0,
+      end: 100,
+      height: 20,
+      bottom: 8,
+      borderColor: '#30363d',
+      fillerColor: 'rgba(88,166,255,0.15)',
+      handleStyle: { color: '#58a6ff' },
+      textStyle: { color: '#8b949e' },
+    },
+    {
+      type: 'slider',
+      yAxisIndex: 0,
+      start: 0,
+      end: 100,
+      width: 20,
+      right: 8,
+      borderColor: '#30363d',
+      fillerColor: 'rgba(88,166,255,0.15)',
+      handleStyle: { color: '#58a6ff' },
+      textStyle: { color: '#8b949e' },
+    },
+    {
+      type: 'inside',
+      xAxisIndex: 0,
+      zoomOnMouseWheel: true,
+      moveOnMouseMove: true,
+    },
+    {
+      type: 'inside',
+      yAxisIndex: 0,
+      zoomOnMouseWheel: true,
+      moveOnMouseMove: true,
+    },
+  ],
   tooltip: {
+    trigger: 'item',
     formatter: function(p) {
+      if (p.dataType === 'edge') {
+        return '<b>' + p.data.label + '</b><br/>' + p.data.source + ' → ' + p.data.target;
+      }
       if (!p.data.name) return '';
       var s = p.data.scores || {};
-      var lines = ['<b>' + p.data.name + '</b>', '综合: ' + p.value[1] + '/5', ''];
-      for (var k in s) lines.push(k + ': ' + s[k]);
+      var lines = [
+        '<b style=font-size:14px>' + p.data.name + '</b>',
+        '<span style=color:#58a6ff>综合: ' + p.value[1].toFixed(1) + '/5</span>',
+        '<span style=color:#8b949e>年份: ' + p.value[0] + '</span>',
+        '<hr style=margin:4px 0;border-color:#30363d>'
+      ];
+      var dims = Object.keys(s);
+      for (var i = 0; i < dims.length; i++) {
+        var v = s[dims[i]];
+        var color = v >= 4 ? '#3fb950' : v >= 3 ? '#d2a8ff' : '#8b949e';
+        lines.push(dims[i] + ': <span style=color:' + color + ';font-weight:bold>' + v + '</span>');
+      }
       return lines.join('<br/>');
     }
   },
-  grid: { left: 80, right: 40, top: 40, bottom: 60 },
+  legend: { show: false },
+  animation: true,
+  grid: { left: 60, right: 30, top: 40, bottom: 40 },
   xAxis: {
     type: 'value',
     name: '年份',
-    min: years[0] - 1,
-    max: years[years.length - 1] + 1,
-    axisLabel: { color: '#8b949e' }
+    min: 1985,
+    max: 2027,
+    axisLabel: { color: '#8b949e', formatter: function(v) { return v.toFixed(0); } },
+    splitLine: { lineStyle: { color: '#21262d' } },
+    nameTextStyle: { color: '#8b949e' },
+    scale: true,  // 自适应范围，避免数据挤在边缘
   },
   yAxis: {
     type: 'value',
     name: '综合评分',
-    min: 0,
+    min: 2,
     max: 5.5,
-    axisLabel: { color: '#8b949e' }
+    axisLabel: { color: '#8b949e' },
+    splitLine: { lineStyle: { color: '#21262d' } },
+    nameTextStyle: { color: '#8b949e' },
+    scale: true,
   },
-  series: series
+  series: [
+    // 关系线（edges）
+    {
+      type: 'lines',
+      coordinateSystem: 'cartesian2d',
+      data: edges.map(function(e) {
+        var s = nodes.find(n => n.id === e.source);
+        var t = nodes.find(n => n.id === e.target);
+        if (!s || !t) return null;
+        return {
+          coords: [[s.year, yValue(s)], [t.year, yValue(t)]],
+          label: { show: true, formatter: e.label, position: 'middle', color: '#e6edf3', fontSize: 12, fontWeight: 'bold' },
+          name: e.label
+        };
+      }).filter(Boolean),
+      lineStyle: {
+        color: '#58a6ff',
+        width: 1.5,
+        curveness: 0.2,
+        type: 'dashed',
+        opacity: 0.6,
+      },
+      effect: {
+        show: true,
+        period: 8,
+        trailLength: 0.15,
+        symbol: 'arrow',
+        symbolSize: 6,
+        color: '#f0883e',
+      },
+      zlevel: 0,
+    },
+    // 里程碑节点
+    {
+      type: 'scatter',
+      name: '里程碑',
+      data: milestoneNodes.map(function(n) {
+        return {
+          value: [n.year, yValue(n)],
+          name: n.name,
+          scores: n.scores,
+          id: n.id
+        };
+      }),
+      symbolSize: function(val) { return Math.max(18, val[1] * 10); },  // 高分越大
+      itemStyle: {
+        borderColor: '#f0883e',
+        borderWidth: 2,
+        color: function(p) {
+          var s = p.data.scores || {};
+          if ((s['接口通用性'] || s['interface']) >= 4) return '#58a6ff';
+          if ((s['可组合性'] || s['composability']) >= 3) return '#3fb950';
+          return '#d2a8ff';
+        },
+        opacity: 0.9,
+      },
+      label: {
+        show: true,
+        formatter: function(p) { return p.data.name.substring(0, 20); },
+        position: 'top',
+        color: '#c9d1d9',
+        fontSize: 11,
+        distance: 8,
+      },
+      zlevel: 2,
+    },
+    // 普通节点
+    {
+      type: 'scatter',
+      name: '论文',
+      data: normalNodes.map(function(n) {
+        return {
+          value: [n.year, yValue(n)],
+          name: n.name,
+          scores: n.scores,
+          id: n.id
+        };
+      }),
+      symbolSize: function(val) { return Math.max(10, val[1] * 8); },  // 高分越大
+      itemStyle: {
+        color: function(p) {
+          var s = p.data.scores || {};
+          if ((s['接口通用性'] || s['interface']) >= 4) return '#58a6ff';
+          if ((s['可组合性'] || s['composability']) >= 3) return '#3fb950';
+          return '#d2a8ff';
+        },
+        opacity: 0.6,
+      },
+      zlevel: 1,
+    },
+  ]
 };
 
 chart.setOption(option);
