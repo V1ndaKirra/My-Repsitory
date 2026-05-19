@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — V1ndaKirra</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --orange: #d2991d;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    line-height: 1.6;
+  }
+  header { margin-bottom: 2.5rem; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+  .subtitle { color: var(--text-dim); font-size: 0.95rem; }
+  .project {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.15s;
+  }
+  .project:hover { border-color: var(--accent); }
+  .project h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+  .project h3 a { color: var(--accent); text-decoration: none; }
+  .project h3 a:hover { text-decoration: underline; }
+  .project p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 0.4rem; }
+  .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.12em 0.55em;
+    border-radius: 12px;
+    background: rgba(88,166,255,0.1);
+    color: var(--accent);
+  }
+  .tag.green { background: rgba(63,185,80,0.1); color: var(--green); }
+  .tag.purple { background: rgba(163,113,247,0.1); color: var(--purple); }
+  .demo-link {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.82rem;
+    color: var(--green);
+  }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>👋 Hi, I'm V1ndaKirra</h1>
+  <p class="subtitle">应届毕业生 · AI 工程师方向 · 项目驱动型开发者</p>
+</header>
+
+<div class="project">
+  <h3>🧬 <a href="techgene/timeline.html">TechGene</a> — 技术谱系追踪系统</h3>
+  <p>七维度评估深度学习关键技术影响力，ECharts 交互式时间线可视化，每日自动简报。</p>
+  <div class="tags">
+    <span class="tag">Python</span><span class="tag">ECharts</span><span class="tag">OpenAlex</span><span class="tag green">DeepSeek</span>
+  </div>
+  <a class="demo-link" href="techgene/timeline.html">→ 在线 Demo</a>
+</div>
+
+<div class="project">
+  <h3>📡 <a href="https://github.com/V1ndaKirra/My-Repsitory/tree/master/ai-push">AI Push</a> — AI 前沿资讯自动推送</h3>
+  <p>HackerNews / Reddit / arXiv 多源采集，LLM 中文摘要，Server酱推送到微信，cron 全自动。</p>
+  <div class="tags">
+    <span class="tag">Python</span><span class="tag purple">HackerNews</span><span class="tag green">Server酱</span>
+  </div>
+</div>
+
+<div class="project">
+  <h3>⚖️ <a href="https://github.com/V1ndaKirra/My-Repsitory/tree/master/chinese-law-rag">Chinese Law RAG</a> — 中文法律检索系统</h3>
+  <p>民法典 + 刑法 ChromaDB 向量库，BGE Embedding 语义检索，MCP 协议对外服务。</p>
+  <div class="tags">
+    <span class="tag">Python</span><span class="tag">ChromaDB</span><span class="tag">BGE</span><span class="tag purple">FastMCP</span>
+  </div>
+</div>
+
+<footer>
+  Built with ❤️ · Hosted on GitHub Pages
+</footer>
+
+</body>
+</html>
