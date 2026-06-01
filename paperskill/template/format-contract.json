@@ -1,0 +1,131 @@
+{
+  "status": "confirmed",
+  "source_template": "template/original.docx",
+  "parsed_at": "2026-04-24T04:33:44+00:00",
+  "page": {
+    "size": "A4",
+    "orientation": "portrait",
+    "margins_cm": {
+      "top": 2.5,
+      "right": 2.5,
+      "bottom": 2.5,
+      "left": 2.5
+    },
+    "header_distance_cm": 1.5,
+    "footer_distance_cm": 1.75,
+    "binding_offset_cm": 0.0
+  },
+  "fonts": {
+    "body": {
+      "zh": "宋体",
+      "en": "Times New Roman",
+      "size_pt": 12
+    },
+    "heading_1": {
+      "zh": "黑体",
+      "en": "Times New Roman",
+      "size_pt": 16
+    },
+    "heading_2": {
+      "zh": "黑体",
+      "en": "Times New Roman",
+      "size_pt": 14
+    },
+    "heading_3": {
+      "zh": "宋体",
+      "en": "Times New Roman",
+      "size_pt": 12,
+      "bold": true
+    },
+    "abstract_zh": {
+      "zh": "宋体",
+      "en": "Times New Roman",
+      "size_pt": 12
+    },
+    "abstract_en": {
+      "zh": "宋体",
+      "en": "Times New Roman",
+      "size_pt": 12
+    },
+    "caption_figure": {
+      "zh": "宋体",
+      "en": "Times New Roman",
+      "size_pt": 10.5
+    },
+    "caption_table": {
+      "zh": "宋体",
+      "en": "Times New Roman",
+      "size_pt": 10.5
+    },
+    "reference": {
+      "zh": "宋体",
+      "en": "Times New Roman",
+      "size_pt": 10.5
+    }
+  },
+  "paragraph": {
+    "body": {
+      "line_spacing": 1.5,
+      "first_line_indent_chars": 2,
+      "spacing_before_pt": 0,
+      "spacing_after_pt": 0,
+      "alignment": "both"
+    }
+  },
+  "headings": {
+    "numbering": {
+      "h1": "第{N}章",
+      "h2": "{N}.{N}",
+      "h3": "{N}.{N}.{N}"
+    },
+    "page_break_before_h1": true,
+    "h1_alignment": "center",
+    "h2_alignment": "left",
+    "h3_alignment": "left"
+  },
+  "front_matter": {
+    "cover": {
+      "fields": [
+        "学院名称",
+        "专业",
+        "班级",
+        "学号",
+        "姓名",
+        "指导教师姓名",
+        "指导教师职称"
+      ]
+    },
+    "abstract_zh": {
+      "enabled": true
+    },
+    "abstract_en": {
+      "enabled": true
+    },
+    "toc": {
+      "enabled": true,
+      "levels": 3
+    }
+  },
+  "body_order": [
+    "正文",
+    "参考文献",
+    "附录",
+    "致谢"
+  ],
+  "references": {
+    "style": "gbt7714-2015"
+  },
+  "page_numbers": {
+    "front": "upperRoman",
+    "body": "decimal",
+    "body_start": 1,
+    "front_range": "to_toc_end"
+  },
+  "header_footer": {
+    "front_matter": "footer_only",
+    "body_footer_pattern": "第 {PAGE} 页 共 {NUMPAGES} 页",
+    "different_odd_even": false
+  },
+  "confirmation_required": [],
+  "confirmed_at": "2026-04-24T04:33:44+00:00"
+}

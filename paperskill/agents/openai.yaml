@@ -1,0 +1,7 @@
+interface:
+  display_name: "Undergrad Defense Thesis"
+  short_description: "面向本科毕设答辩，按用户确认节点推进论文、证据、图表与预检。"
+  default_prompt: "Use $thesis-writing to collaboratively build or revise an undergrad software-thesis workspace with explicit user checkpoints, real evidence, manual screenshots, Mermaid flowcharts, editable draw.io diagrams, defense-oriented preflight, and superpowers-brainstorm-style guidance for implementation storytelling and debug analysis when available."
+
+policy:
+  allow_implicit_invocation: true
